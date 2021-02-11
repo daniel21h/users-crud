@@ -1,9 +1,27 @@
-export class UsersService {
-  private users = [];
+import { Injectable } from "@nestjs/common";
+import { User } from "./user.entity";
 
-  public create(user) {
+@Injectable()
+export class UsersService {
+  private users: Array<User> = [
+    {
+      id: 1,
+      username: 'daniel21h',
+      email: 'daniel@gmail.com',
+      password: '123456',
+      name: 'Daniel Hessel',
+      createdAt: new Date()
+    }
+  ];
+
+  public create(user: User): User {
     this.users.push(user);
 
     return user;
   }
+
+  public findByName(username: string): User {
+    return this.users.find(user => user.username == username);
+  }
+
 }
