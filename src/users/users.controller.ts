@@ -9,7 +9,7 @@ export class UsersController {
 
   @Get(':username')
   public show(@Param('username') username: string) {
-    const user = this.usersService.findByName(username);
+    const user = this.usersService.findByUsername(username);
 
     return user;
   }

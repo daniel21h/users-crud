@@ -1,8 +1,12 @@
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { IsUsernameAlreadyExist } from "./pipes/validations.pipe";
 
 export class User {
   id: number;
 
+  @IsUsernameAlreadyExist({
+    message: 'Username must be unique.'
+  })
   @IsNotEmpty({ message: 'The username is mandatory.' })
   @IsString({ message: 'Username must be a string.' })
   username: string;

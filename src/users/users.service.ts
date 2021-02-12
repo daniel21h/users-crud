@@ -20,7 +20,7 @@ export class UsersService {
     return user;
   }
 
-  public findByName(username: string): User {
+  public findByUsername(username: string): User {
     return this.users.find(user => user.username == username);
   }
 
